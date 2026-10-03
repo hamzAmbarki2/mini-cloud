@@ -4,9 +4,12 @@ Read this file first in every new session, then the spec in `docs/superpowers/sp
 
 ## Where we stopped (2026-10-03)
 - **Design approved.** Spec: `docs/superpowers/specs/2026-10-03-mini-cloud-part1-design.md`. Pictures: `docs/pictures/`.
-- **Next step:** write the implementation plan with the `superpowers:writing-plans` skill, milestone 1 and 2 in detail first. Then teach milestone 1.
-- **Nothing is built yet.** There is no code.
-- Open items: where the permanent local project folder lives; week-1 technical choices (kind or k3d, Calico or Cilium, SQLite or Postgres for usage and bills, Docker Desktop or Docker Engine in WSL2); re-check tool versions and licences at the start.
+- **Next step:** finish the implementation plan with the `superpowers:writing-plans` skill: a master plan plus detailed plans for milestones 1 and 2. **Start from `docs/superpowers/plans/2026-10-03-PLAN-NOTES-in-progress.md`**: it holds the task outlines, the findings on the owner's old PC, and the list of facts still to verify before writing commands. Then teach milestone 1.
+- **Nothing is built yet.** The only code is a verified draft lab script in `labs/container-by-hand/`.
+- **The owner is reformatting their PC** (disk was full). Everything lives in this repo. After a fresh install: install Git, clone, open the folder in Claude Code, and check the machine from scratch (WSL2, cgroup v2, Docker).
+- **Do not install or download anything on the owner's machine without asking.** A Go download was rejected on 2026-10-03.
+- Open items: week-1 technical choices (kind or k3d, Calico or Cilium, SQLite or Postgres for usage and bills, Docker Desktop or Docker Engine in WSL2); re-check tool versions and licences at the start.
+- Older material is kept in `archive-from-scratch/` (the superseded from-scratch design, its pictures and its generator script).
 
 ## The project in one paragraph
 A small multi-tenant platform on the open-source DevOps stack (Docker, Kubernetes via kind, Terraform, GitLab CE and Runner, SonarQube Community, Trivy, Gitleaks, Hadolint, BuildKit, Argo CD, Calico, Traefik, CoreDNS, cert-manager with a private CA, Prometheus, Grafana, Loki, Alertmanager, Kyverno, k6, Chaos Mesh) plus the owner's own Go code: `mall-operator` (Tenant and App custom resources), `mall-api`, the `mall` CLI and `mall-meter`. Story: a mall. Customers rent locked sections (namespaces). Apps live at `https://<tenant>-<app>.mall.hamza`.
